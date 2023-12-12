@@ -37,12 +37,20 @@ namespace SPS30
                 this.Invoke((MethodInvoker)delegate
                 {
                     WriteLog(sps30Object.sps30_rx_buffer, sps30Object.sps30_rx_count);
+                    if(chkFormat.Checked)
+                    {
+                        WriteLogParsedData(sps30Object.sps30_rx_buffer, sps30Object.sps30_rx_count);
+                    }
                     UpdateSPS30Data();
                 });
             }
             else
             {
                 WriteLog(sps30Object.sps30_rx_buffer, sps30Object.sps30_rx_count);
+                if (chkFormat.Checked)
+                {
+                    WriteLogParsedData(sps30Object.sps30_rx_buffer, sps30Object.sps30_rx_count);
+                }
                 UpdateSPS30Data();
             }
         }
@@ -175,6 +183,40 @@ namespace SPS30
         private void btnGetRevision_Click(object sender, EventArgs e)
         {
             sps30Object.sps30_send_dev_info();
+        }
+        private void WriteLogParsedData(byte[] rxdata, int size)
+        {
+            // this is for only Read data
+            if (rxdata[2] != 0x03) return;
+            byte len = rxdata[4];
+            StringBuilder sb = new StringBuilder();
+
+            if (len != 0x28 || size < len) return; //read data's length must be 40bytes (0x28)
+            
+            byte[] buf = new byte[4];
+            int idx = 0;
+            sb.AppendLine("Processed=");
+            for (byte i = 5; i < size - 2; i += 4) // start posistion of real data is 5.
+            {
+                //that is because of big endian
+
+                buf[3] = rxdata[i];
+                buf[2] = rxdata[i + 1];
+                buf[1] = rxdata[i + 2];
+                buf[0] = rxdata[i + 3];
+                float value = System.BitConverter.ToSingle(buf, 0);
+                sb.Append($"{rxdata[i].ToString("X2")} {rxdata[i + 1].ToString("X2")} {rxdata[i + 2].ToString("X2")} {rxdata[i + 3].ToString("X2")}->");
+                sb.Append($"{buf[0].ToString("X2")} {buf[01].ToString("X2")} {buf[2].ToString("X2")} {buf[3].ToString("X2")}->");
+                sb.Append($"{value.ToString("0.###")}\n");
+                idx++;
+            }
+            sb.AppendLine();
+            richTextBox1.AppendText(sb.ToString());
+        }
+
+        private void chkFormat_CheckedChanged(object sender, EventArgs e)
+        {
+            chkFormat.Text = chkFormat.Checked ? "FORMAT" : "HEX";
         }
     }
 }

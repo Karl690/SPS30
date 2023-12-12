@@ -69,6 +69,7 @@ namespace SPS30
             this.lblRevision = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnGetRevision = new System.Windows.Forms.Button();
+            this.chkFormat = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // cmbSerialPorts
@@ -92,9 +93,9 @@ namespace SPS30
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(26, 148);
+            this.richTextBox1.Location = new System.Drawing.Point(26, 177);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(410, 453);
+            this.richTextBox1.Size = new System.Drawing.Size(410, 424);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
@@ -450,10 +451,26 @@ namespace SPS30
             this.btnGetRevision.UseVisualStyleBackColor = true;
             this.btnGetRevision.Click += new System.EventHandler(this.btnGetRevision_Click);
             // 
+            // chkFormat
+            // 
+            this.chkFormat.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkFormat.BackColor = System.Drawing.Color.Gray;
+            this.chkFormat.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
+            this.chkFormat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkFormat.Location = new System.Drawing.Point(332, 141);
+            this.chkFormat.Name = "chkFormat";
+            this.chkFormat.Size = new System.Drawing.Size(104, 30);
+            this.chkFormat.TabIndex = 6;
+            this.chkFormat.Text = "HEX";
+            this.chkFormat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkFormat.UseVisualStyleBackColor = false;
+            this.chkFormat.CheckedChanged += new System.EventHandler(this.chkFormat_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(928, 635);
+            this.Controls.Add(this.chkFormat);
             this.Controls.Add(this.lblTPSize);
             this.Controls.Add(this.lblNPM100);
             this.Controls.Add(this.lblNPM40);
@@ -539,6 +556,7 @@ namespace SPS30
         private System.Windows.Forms.Label lblRevision;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnGetRevision;
+        private System.Windows.Forms.CheckBox chkFormat;
     }
 }
 
