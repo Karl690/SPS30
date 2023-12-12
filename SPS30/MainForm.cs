@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO.Ports;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,6 +21,8 @@ namespace SPS30
         public MainForm()
         {
             InitializeComponent();
+            //Font logFont = GetCustomFont(Properties.Resources.monofont, 10, FontStyle.Regular);
+            //richTextBox1.Font = logFont;
             this.Text = $"{RevisionHistory.RevisionHeader} {RevisionHistory.MajorStep}.{RevisionHistory.MinorStep} - {RevisionHistory.RevisionDate}";
             string[] ports = SerialPort.GetPortNames();
             foreach (var port in ports)
@@ -136,7 +140,7 @@ namespace SPS30
             for(int i = 0; i < size; i++)
             {
                 if (i != 0 && i % 16 == 0) sb.AppendLine();
-                sb.Append($"{data[i].ToString("X2")} ");
+                sb.Append($"{data[i].ToString("x2")} ");
             }
             sb.AppendLine();
             richTextBox1.AppendText(sb.ToString());
@@ -170,7 +174,7 @@ namespace SPS30
                 sum += (byte)serialTxBuffer[i + 1];
             }
             byte checksum = (byte)~(sum & 0xff);
-            richTextBox1.AppendText($"\nCHECKSUM: 0x{checksum.ToString("X2")}\n");
+            richTextBox1.AppendText($"\nCHECKSUM: 0x{checksum.ToString("x2")}\n");
 
 
             serialTxBuffer[bytes - 2] = checksum;
@@ -205,9 +209,9 @@ namespace SPS30
                 buf[1] = rxdata[i + 2];
                 buf[0] = rxdata[i + 3];
                 float value = System.BitConverter.ToSingle(buf, 0);
-                sb.Append($"{rxdata[i].ToString("X2")} {rxdata[i + 1].ToString("X2")} {rxdata[i + 2].ToString("X2")} {rxdata[i + 3].ToString("X2")}->");
-                sb.Append($"{buf[0].ToString("X2")} {buf[01].ToString("X2")} {buf[2].ToString("X2")} {buf[3].ToString("X2")}->");
-                sb.Append($"{value.ToString("0.###")}\n");
+                sb.Append($"{rxdata[i].ToString("x2")} {rxdata[i + 1].ToString("x2")} {rxdata[i + 2].ToString("x2")} {rxdata[i + 3].ToString("x2")}   ");
+                sb.Append($"{buf[0].ToString("x2")} {buf[01].ToString("x2")} {buf[2].ToString("x2")} {buf[3].ToString("x2")}   ");
+                sb.Append($"= {value.ToString("0.###")}\n");
                 idx++;
             }
             sb.AppendLine();
@@ -218,5 +222,19 @@ namespace SPS30
         {
             chkFormat.Text = chkFormat.Checked ? "FORMAT" : "HEX";
         }
+        static private List<PrivateFontCollection> _fontCollections;
+
+        static public Font GetCustomFont(byte[] fontData, float size, FontStyle style)
+        {
+            if (_fontCollections == null) _fontCollections = new List<PrivateFontCollection>();
+            PrivateFontCollection fontCol = new PrivateFontCollection();
+            IntPtr fontPtr = Marshal.AllocCoTaskMem(fontData.Length);
+            Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            fontCol.AddMemoryFont(fontPtr, fontData.Length);
+            Marshal.FreeCoTaskMem(fontPtr);     //<-- It works!
+            _fontCollections.Add(fontCol);
+            return new Font(fontCol.Families[0], size, style);
+        }
+
     }
 }

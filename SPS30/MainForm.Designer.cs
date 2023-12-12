@@ -78,7 +78,7 @@ namespace SPS30
             this.cmbSerialPorts.FormattingEnabled = true;
             this.cmbSerialPorts.Location = new System.Drawing.Point(26, 12);
             this.cmbSerialPorts.Name = "cmbSerialPorts";
-            this.cmbSerialPorts.Size = new System.Drawing.Size(121, 28);
+            this.cmbSerialPorts.Size = new System.Drawing.Size(121, 30);
             this.cmbSerialPorts.TabIndex = 0;
             // 
             // btnConnect
@@ -93,6 +93,7 @@ namespace SPS30
             // 
             // richTextBox1
             // 
+            this.richTextBox1.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(26, 177);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(410, 424);
@@ -144,7 +145,7 @@ namespace SPS30
             this.chkLoop.AutoSize = true;
             this.chkLoop.Location = new System.Drawing.Point(583, 190);
             this.chkLoop.Name = "chkLoop";
-            this.chkLoop.Size = new System.Drawing.Size(105, 24);
+            this.chkLoop.Size = new System.Drawing.Size(114, 26);
             this.chkLoop.TabIndex = 3;
             this.chkLoop.Text = "1ms Loop";
             this.chkLoop.UseVisualStyleBackColor = true;
@@ -161,7 +162,7 @@ namespace SPS30
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(463, 228);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(251, 20);
+            this.label1.Size = new System.Drawing.Size(285, 22);
             this.label1.TabIndex = 4;
             this.label1.Text = "Mass Concentration PM1.0 [µg/m³]";
             // 
@@ -180,7 +181,7 @@ namespace SPS30
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(463, 263);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(251, 20);
+            this.label3.Size = new System.Drawing.Size(285, 22);
             this.label3.TabIndex = 4;
             this.label3.Text = "Mass Concentration PM2.5 [µg/m³]";
             // 
@@ -199,7 +200,7 @@ namespace SPS30
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(463, 299);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(251, 20);
+            this.label5.Size = new System.Drawing.Size(285, 22);
             this.label5.TabIndex = 4;
             this.label5.Text = "Mass Concentration PM4.0 [µg/m³]";
             // 
@@ -218,7 +219,7 @@ namespace SPS30
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(463, 339);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(247, 20);
+            this.label7.Size = new System.Drawing.Size(280, 22);
             this.label7.TabIndex = 4;
             this.label7.Text = "Mass Concentration PM10 [µg/m³]";
             // 
@@ -237,7 +238,7 @@ namespace SPS30
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(463, 376);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(269, 20);
+            this.label9.Size = new System.Drawing.Size(305, 22);
             this.label9.TabIndex = 4;
             this.label9.Text = "Number Concentration PM0.5 [#/cm³]";
             // 
@@ -246,7 +247,7 @@ namespace SPS30
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(463, 413);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(269, 20);
+            this.label11.Size = new System.Drawing.Size(305, 22);
             this.label11.TabIndex = 4;
             this.label11.Text = "Number Concentration PM1.0 [#/cm³]";
             // 
@@ -265,7 +266,7 @@ namespace SPS30
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(463, 450);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(269, 20);
+            this.label13.Size = new System.Drawing.Size(305, 22);
             this.label13.TabIndex = 4;
             this.label13.Text = "Number Concentration PM2.5 [#/cm³]";
             // 
@@ -284,7 +285,7 @@ namespace SPS30
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(463, 487);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(269, 20);
+            this.label15.Size = new System.Drawing.Size(305, 22);
             this.label15.TabIndex = 4;
             this.label15.Text = "Number Concentration PM4.0 [#/cm³]";
             // 
@@ -303,7 +304,7 @@ namespace SPS30
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(463, 524);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(265, 20);
+            this.label17.Size = new System.Drawing.Size(300, 22);
             this.label17.TabIndex = 4;
             this.label17.Text = "Number Concentration PM10 [#/cm³]";
             // 
@@ -332,7 +333,7 @@ namespace SPS30
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(463, 561);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(190, 20);
+            this.label10.Size = new System.Drawing.Size(221, 22);
             this.label10.TabIndex = 4;
             this.label10.Text = "Typical Particle Size8 [µm]";
             // 
@@ -368,7 +369,7 @@ namespace SPS30
             "115200"});
             this.cmbBaudRate.Location = new System.Drawing.Point(164, 12);
             this.cmbBaudRate.Name = "cmbBaudRate";
-            this.cmbBaudRate.Size = new System.Drawing.Size(121, 28);
+            this.cmbBaudRate.Size = new System.Drawing.Size(121, 30);
             this.cmbBaudRate.TabIndex = 0;
             // 
             // btnSendBuffer
@@ -393,7 +394,7 @@ namespace SPS30
             "4096"});
             this.cmbBytes.Location = new System.Drawing.Point(640, 14);
             this.cmbBytes.Name = "cmbBytes";
-            this.cmbBytes.Size = new System.Drawing.Size(121, 28);
+            this.cmbBytes.Size = new System.Drawing.Size(121, 30);
             this.cmbBytes.TabIndex = 0;
             // 
             // label2
@@ -401,7 +402,7 @@ namespace SPS30
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(775, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 20);
+            this.label2.Size = new System.Drawing.Size(55, 22);
             this.label2.TabIndex = 5;
             this.label2.Text = "Bytes";
             // 
@@ -410,7 +411,7 @@ namespace SPS30
             this.lblStatus.AutoSize = true;
             this.lblStatus.Location = new System.Drawing.Point(183, 105);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(46, 20);
+            this.lblStatus.Size = new System.Drawing.Size(49, 22);
             this.lblStatus.TabIndex = 4;
             this.lblStatus.Text = "IDLE";
             // 
@@ -419,7 +420,7 @@ namespace SPS30
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(32, 105);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 20);
+            this.label4.Size = new System.Drawing.Size(127, 22);
             this.label4.TabIndex = 4;
             this.label4.Text = "SPS30 Status:";
             // 
@@ -428,7 +429,7 @@ namespace SPS30
             this.lblRevision.AutoSize = true;
             this.lblRevision.Location = new System.Drawing.Point(183, 63);
             this.lblRevision.Name = "lblRevision";
-            this.lblRevision.Size = new System.Drawing.Size(81, 20);
+            this.lblRevision.Size = new System.Drawing.Size(90, 22);
             this.lblRevision.TabIndex = 4;
             this.lblRevision.Text = "########";
             // 
@@ -437,7 +438,7 @@ namespace SPS30
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(32, 63);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(127, 20);
+            this.label8.Size = new System.Drawing.Size(145, 22);
             this.label8.TabIndex = 4;
             this.label8.Text = "SPS30 Revision:";
             // 
@@ -469,6 +470,7 @@ namespace SPS30
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(928, 635);
             this.Controls.Add(this.chkFormat);
             this.Controls.Add(this.lblTPSize);
@@ -509,6 +511,7 @@ namespace SPS30
             this.Controls.Add(this.cmbBytes);
             this.Controls.Add(this.cmbBaudRate);
             this.Controls.Add(this.cmbSerialPorts);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MainForm";
             this.Text = "Form1";
             this.ResumeLayout(false);

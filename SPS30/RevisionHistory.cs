@@ -10,7 +10,7 @@ namespace SPS30
     {
         static public string RevisionHeader = @"SPS30";
         static public string MajorStep = "1";
-        static public string MinorStep = "0.001";
+        static public string MinorStep = "0.002";
         static public string RevisionDate = @"12/12/2023";
 
     }
